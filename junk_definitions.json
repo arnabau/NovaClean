@@ -1,0 +1,120 @@
+[
+  {
+    "category": "trash",
+    "items": [
+      { "name": "User Trash", "path": "~/.Trash" }
+    ]
+  },
+  {
+    "category": "dev",
+    "items": [
+      { "name": "Xcode DerivedData", "path": "~/Library/Developer/Xcode/DerivedData" },
+      { "name": "CocoaPods Cache", "path": "~/Library/Caches/CocoaPods" },
+      { "name": "Xcode iOS DeviceSupport", "path": "~/Library/Developer/Xcode/iOS DeviceSupport" },
+      { "name": "Xcode Archives", "path": "~/Library/Developer/Xcode/Archives" },
+      { "name": "Xcode documentation cache", "path": "~/Library/Developer/Xcode/DocumentationCache" },
+      { "name": "Xcode documentation index", "path": "~/Library/Developer/Xcode/DocumentationIndex" },
+      { "name": "npm Cache", "path": "~/.npm" },
+      { "name": "Homebrew Downloads", "path": "~/Library/Caches/Homebrew" },
+      { "name": "VS Code logs", "path": "~/Library/Application Support/Code/Logs" },
+      { "name": "VS Code cache", "path": "~/Library/Application Support/Code/Cache" },
+      { "name": "VS Code extension cache", "path": "~/Library/Application Support/Code/CachedExtensions" },
+      { "name": "VS Code data cache", "path": "~/Library/Application Support/Code/CachedData" },
+      { "name": "Zed cache", "path": "~/Library/Caches/Zed" },
+      { "name": "Zed logs", "path": "~/Library/Logs/Zed" }
+    ]
+  },
+  {
+    "category": "browser",
+    "items": [
+      { "name": "Safari Cache", "path": "~/Library/Caches/com.apple.Safari" },
+      { "name": "Brave Cache", "path": "~/Library/Caches/com.brave.Browser" },
+      { "name": "Brave Data Cache", "path": "~/Library/Caches/BraveSoftware/Brave-Browser/Default/Cache/Cache_Data" },
+      { "name": "Chrome Cache", "path": "~/Library/Application Support/Google/Chrome/Default/Cache" }
+    ]
+  },
+  {
+    "category": "logs",
+    "items": [
+      { "name": "User Logs", "path": "~/Library/Logs" },
+      { "name": "System Logs", "path": "/var/log" }
+    ]
+  },
+  {
+    "category": "cache",
+    "items": [
+      { "name": "User Caches", "path": "~/Library/Caches" },
+      { "name": "macOS Updates", "path": "/Library/Updates" },
+      { "name": "Diagnostic Reports", "path": "~/Library/Logs/DiagnosticReports" }
+    ]
+  },
+  {
+    "category": "apps",
+    "items": [
+      { "name": "Adobe App Cache", "path": "~/Library/Caches/com.adobe" },
+      { "name": "Adobe Cache", "path": "~/Library/Caches/Adobe" },
+      { "name": "Adobe Media Cache", "path": "~/Library/Application Support/Adobe/Common/Media Cache Files" },
+      { "name": "Apple Music Artwork Cache", "path": "~/Library/Caches/com.apple.Music" },
+      { "name": "Autodesk Cache", "path": "~/Library/Caches/com.autodesk" },
+      { "name": "Battle.net Cache", "path": "~/Library/Caches/com.blizzard.Battle.net" },
+      { "name": "Blender Cache", "path": "~/Library/Caches/org.blenderfoundation.blender" },
+      { "name": "ChatGPT Cache", "path": "~/Library/Caches/com.openai.chat" },
+      { "name": "Cinema 4D Cache", "path": "~/Library/Caches/com.maxon.cinema4d" },
+      { "name": "Codex CLI Logs", "path": "~/Library/Logs/com.openai.codex" },
+      { "name": "Claude Desktop Cache", "path": "~/Library/Caches/com.anthropic.claudefordesktop" },
+      { "name": "Claude Logs", "path": "~/Library/Logs/Claude" },
+      { "name": "Davinci Resolve Cache", "path": "~/Library/Caches/com.blackmagic-design.DaVinciResolve" },
+      { "name": "Davinci Resolve CacheClip", "path": "~/Movies/CacheClip" },
+      { "name": "Discord Cache", "path": "~/Library/Application Support/discord/Cache" },
+      { "name": "EA Origin Cache", "path": "~/Library/Caches/com.ea" },
+      { "name": "Epic Games Cache", "path": "~/Library/Caches/com.epicgames.EpicGamesLauncher" },
+      { "name": "Figma Cache", "path": "~/Library/Caches/com.figma.Desktop" },
+      { "name": "Figma Offline Assets", "path": "~/Library/Application Support/Figma/DesktopProfile/Nodes" },
+      { "name": "Final Cut Pro Cache", "path": "~/Library/Caches/com.apple.FinalCut" },
+      { "name": "GOG Galaxy Cache", "path": "~/Library/Caches/com.gog.galaxy" },
+      { "name": "Microsoft Teams Cache", "path": "~/Library/Caches/com.microsoft.teams2" },
+      { "name": "Minecraft Crash Reports", "path": "~/Library/Application Support/minecraft/crash-reports" },
+      { "name": "Minecraft Logs", "path": " ~/Library/Application Support/minecraft/logs" },
+      { "name": "Minecraft Web Cache", "path": "~/Library/Application Support/minecraft/webcache" },
+      { "name": "Ollama Downloads", "path": "~/Library/Caches/ollama" },
+      { "name": "Premiere Pro Cache", "path": "~/Library/Caches/com.adobe.PremierePro" },
+      { "name": "Riot Games Cache", "path": "~/Library/Caches/com.riotgames" },
+      { "name": "Sketch App Cache", "path": "~/Library/Application Support/com.bohemiancoding.sketch3/cache" },
+      { "name": "Sketch Cache", "path": "~/Library/Caches/com.bohemiancoding.sketch3" },
+      { "name": "SketchUp Cache", "path": "~/Library/Caches/com.sketchup" },
+      { "name": "Skype Cache", "path": "~/Library/Caches/com.skype.skype" },
+      { "name": "Slack Caches (App Support)", "path": "~/Library/Application Support/Slack/Cache" },
+      { "name": "Slack Caches (Containers)", "path": "~/Library/Containers/com.tinyspeck.slackmacgap/Data/Library/Caches" },
+      { "name": "Spotify Logs", "path": "~/Library/Application Support/com.spotify.Spotify/Logs" },
+      { "name": "Steam App Cache", "path": "~/Library/Application Support/Steam/appcache" },
+      { "name": "Steam App Logs", "path": "~/Library/Application Support/Steam/logs" },
+      { "name": "Steam Cache", "path": "~/Library/Caches/com.valvesoftware.steam" },
+      { "name": "Steam Depot Cache", "path": "~/Library/Application Support/Steam/depotcache" },
+      { "name": "Steam HTML Cache", "path": "~/Library/Application Support/Steam/htmlcache" },
+      { "name": "Steam Shader Cache", "path": "~/Library/Application Support/Steam/steamapps/shadercache" },
+      { "name": "Telegram Cache", "path": "~/Library/Caches/ru.keepcoder.Telegram" },
+      { "name": "Telegram Media Cache", "path": "~/Library/Group Containers/76W4S8S8AM.com.keepcoder.Telegram/account-*/postbox/media" },
+      { "name": "VLC Cache", "path": "~/Library/Caches/org.videolan.vlc" },
+      { "name": "WhatsApp Cache (Library)", "path": "~/Library/Caches/net.whatsapp.WhatsApp" },
+      { "name": "WhatsApp Caches (Data)", "path": "~/Library/Containers/desktop.WhatsApp/Data/Library/Caches" },
+      { "name": "Zoom Cache", "path": "~/Library/Caches/us.zoom.xos" },
+      { "name": "Zoom Logs", "path": "~/Library/Application Support/zoom.us/Logs" }
+    ]
+  },
+  {
+    "category": "advanced",
+    "items": [
+      { "name": "Application Support", "path": "~/Library/Application Support" },
+      { "name": "Containers (Sandbox Data)", "path": "~/Library/Containers" },
+      { "name": "Time Machine Snapshots", "path": "/Volumes" },
+      { "name": "Downloads folder", "path": "~/Downloads" },
+      { "name": "iPhone/iPad Backups", "path": "~/Library/Application Support/MobileSync/Backup" }
+    ]
+  },
+  {
+    "category": "test",
+    "items": [
+      { "name": "NovaClean Sandbox Test", "path": "/tmp/novaclean_test" }
+    ]
+  }
+]

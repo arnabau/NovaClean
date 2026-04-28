@@ -1,0 +1,66 @@
+/* 
+  es.lproj:Localizable.strings
+  NovaClean
+
+  Created by Arnaldo Baumanis on 4/21/26.
+  
+*/
+
+/* UI - Main View */
+"main_view_appearance" = "Tema";
+"main_view_permission_title" = "Acceso Limitado Detectado";
+"main_view_permission_description" = "Concede permiso para acceder a todos los archivos para escanear tu sistema.";
+"main_view_permission_button" = "Abrir Ajustes";
+"main_view_header_title" = "Tu dispositivo está listo para ser escaneado.";
+"main_view_header_description" = "NovaClean buscará archivos de caché, registros y restos de desarrollo que puedan estar ocupando espacio innecesario. Una vez finalizado el proceso, verá una lista de todos los archivos basura encontrados y la opción para eliminarlos. Recuerde hacer una copia de seguridad de sus datos antes de cualquier proceso de limpieza.";
+"card_selection_summary" = "%lld elementos seleccionados (%@)";
+
+
+/* UI - Scanning Results */
+"scan_view_empty_title" = "No se encontró basura";
+"scan_view_empty_description" = "¡Tu sistema está limpio! No se detectaron archivos innecesarios.";
+"scan_view_help_highrisk" = "Precaución: Esta carpeta contiene archivos de configuración de aplicaciones o de base de datos.";
+"scan_summary_format" = "%lld categorías encontradas. %@";
+"scan_bytes_summary" = "%@ encontrados.";
+"cleanning_in_progress" = "Limpiando %@";
+
+/* UI - Result View */
+"cleanning_done_message" = "Limpieza completada";
+"cleanning_done_description" = "Tu Mac está ahora luce genial!";
+"cleanning_done_summary" = "Espacio Liberado";
+"cleanning_done_total_files" = "Archivos eliminados";
+
+/* UI - Alerts */
+"alert_delete_title" = "Confirmar Eliminación";
+"alert_delete_message" = "¿Estás seguro de que quieres eliminar estos archivos permanentemente?";
+"alert_delete_button_confirm" = "Eliminar";
+"alert_delete_button_cancel" = "Cancelar";
+
+/* UI - Buttons & Actions */
+"button_start_scan" = "Iniciar Escaneo";
+"button_smart_selection" = "Selección Inteligente";
+"help_button_smart_selection" = "Selecciona únicamente los archivos que se pueden eliminar de forma segura (caché, papelera y registros).";
+"button_clean_now" = "Limpiar Ahora";
+"button_open_settings" = "Abrir Ajustes";
+"button_open_folder" = "Abrir Carpeta";
+"button_deselect_all" = "Deseleccionar todo";
+
+/* UI - Errors & Notifications */
+"error_permission_title" = "Acceso denegado";
+"error_permission_denied" = "Permiso denegado. Por favor, revisa los Ajustes del Sistema.";
+"error_scan_failed" = "Ocurrió un error durante el proceso de escaneo.";
+"blocked_suspicious_route" = "NovaClean bloqueó una ruta sospechosa";
+"error_parsing_config" = "No se pudo leer el archivo de configuración.";
+"error_disk_full" = "No hay suficiente espacio en disco para completar la operación.";
+"error_generic_title" = "Ocurrió un error";
+"error_generic_message" = "Ocurrió un error inesperado";
+"permission_denied_suggestion" = "Ve a Ajustes del Sistema > Privacidad y Seguridad > Acceso pleno al disco y activa NovaClean";
+"disk_full_suggestion" = "Intenta borrar archivos manualmente o vaciar la papelera primero";
+"file_not_found_suggestion" = "El archivo puede haber sido movido o eliminado por otra aplicación";
+"uknown_suggestion" = "Si el problema persiste, reinicia la aplicación";
+
+/* UI - Texts */
+"text_files" = "%lld archivos";
+"text_warning" = "Alerta";
+"text_analizing" = "Analizando";
+"text_ready_scan" = "Listo para comenzar";

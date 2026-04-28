@@ -1,0 +1,66 @@
+/* 
+  Localizable.strings
+  NovaClean
+
+  Created by Arnaldo Baumanis on 4/21/26.
+  
+*/
+
+/* UI - Main View */
+"main_view_theme" = "Theme";
+"main_view_permission_title" = "Limited Access Detected";
+"main_view_permission_description" = "Grant permission to access all files to scan your system.";
+"main_view_permission_button" = "Open Settings";
+"main_view_header_title" = "Your device is ready for a scan";
+"main_view_header_description" = "NovaClean will scan for cache files, logs and development remnants that may be taking up unnecessary space. Once the process is complete, you'll be presented with a list of all the junk found and the option to delete it. Remember to back up your data before any cleaning process.";
+"card_selection_summary" = "%lld items selected (%@)";
+
+/* UI - Scan Results */
+"scan_view_empty_title" = "No Junk Found";
+"scan_view_empty_description" = "Your system is clean! No unnecessary files were detected.";
+"scan_view_help_highrisk" = "Caution: This folder contains app settings or database files.";
+"scan_summary_format" = "%lld categories found. %@";
+"scan_bytes_summary" = "%@ found.";
+"cleanning_in_progress" = "Cleanning %@";
+
+/* UI - Result View */
+"cleanning_done_message" = "Cleaning completed";
+"cleanning_done_description" = "Your Mac now is looking good!";
+"cleanning_done_summary" = "Freed up space";
+"cleanning_done_total_files" = "Deleted files";
+
+/* UI - Alerts */
+"alert_delete_title" = "Confirm Deletion";
+"alert_delete_message" = "Are you sure you want to permanently delete these files?";
+"alert_delete_button_confirm" = "Delete";
+"alert_delete_button_cancel" = "Cancel";
+
+/* UI - Buttons & Actions */
+"button_start_scan" = "Start Scan";
+"button_smart_selection" = "Smart Selection";
+"help_button_smart_selection" = "Selects only safe-to-delete files (Caches, Trash, and Logs)";
+"button_clean_now" = "Clean Now";
+"button_open_settings" = "Open Settings";
+"button_open_folder" = "Open Folder";
+"button_deselect_all" = "Deselect All";
+
+/* UI - Errors & Notifications */
+"error_permission_title" = "Access Denied";
+"error_file_not_found" = "The file at path %@ was not found.";
+"error_permission_denied" = "Permission denied. Please check System Settings.";
+"error_scan_failed" = "An error occurred during the scan process.";
+"blocked_suspicious_route" = "NovaClean blocked a suspicious route";
+"error_parsing_config" = "Failed to read the configuration file.";
+"error_disk_full" = "Not enough disk space to complete the operation.";
+"error_generic_title" = "An error occurred";
+"error_generic_message" = "An unexpected error happened.";
+"permission_denied_suggestion" = "Go to System Settings > Privacy and Security > Full disk access and enable NovaClean";
+"disk_full_suggestion" = "Try deleting files manually or emptying the recycle bin first";
+"file_not_found_suggestion" = "The file may have been moved or deleted by another application";
+"uknown_suggestion" = "If the problem persists restart the application";
+
+/* UI - Labels */
+"text_files" = "%lld files";
+"text_warning" = "Warning";
+"text_analizing" = "Analizing";
+"text_ready_scan" = "Ready to scan";
