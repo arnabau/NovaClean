@@ -76,7 +76,7 @@ class ConfigurationRepository {
             
             /// 7. Block anything from com.apple.* (except Safari, which is safe)
             if standardized.contains("/com.apple.") && !standardized.contains("safari") {
-                print("🛡️ Avoiding potentially dangerous path \(standardized)")
+                //print("🛡️ Avoiding potentially dangerous path \(standardized)")
                 return false
             }
             

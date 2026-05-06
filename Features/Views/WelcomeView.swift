@@ -26,7 +26,7 @@ struct WelcomeView: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    .symbolEffect(.variableColor.reversing, options: .repeating)
+                    //.symbolEffect(.variableColor.reversing, options: .repeating)
             }
             
             VStack(spacing: 12) {

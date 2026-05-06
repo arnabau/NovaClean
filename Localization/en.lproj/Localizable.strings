@@ -26,6 +26,7 @@
 /* UI - Result View */
 "cleanning_done_message" = "Cleaning completed";
 "cleanning_done_description" = "Your Mac now is looking good!";
+"cleanning_error_message" = "Some system files cannot be deleted";
 "cleanning_done_summary" = "Freed up space";
 "cleanning_done_total_files" = "Deleted files";
 

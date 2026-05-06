@@ -38,7 +38,8 @@ struct ContentView: View {
             /// When the user returns to the app after granting permission
             viewModel.checkPermissions()
         }
-        .onAppear( perform: { viewModel.checkPermissions() })
+//        .onAppear( perform: { viewModel.checkPermissions() })
+        .task { @MainActor in viewModel.checkPermissions() }
         .frame(minWidth: 600, minHeight: 450)
         .animation(.spring(), value: viewModel.hasFDA)
         .alert("alert_delete_title".localized, isPresented: $showConfirmAlert) {
@@ -128,6 +129,7 @@ struct ContentView: View {
                         ForEach($viewModel.findings) { $item in
                             if !item.isCleaned {
                                 JunkRowView(item: $item)
+                                    .id(item.id)
                                     .transition(
                                         .asymmetric(
                                             insertion: .opacity,

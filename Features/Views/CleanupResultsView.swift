@@ -32,6 +32,10 @@ struct CleanupResultsView: View {
                 Text("cleanning_done_description".localized)
                     .font(.system(size: 15, weight: .bold, design: .rounded))
                     .foregroundColor(.secondary)
+                
+                Text("cleanning_error_message".localized)
+                    .font(.system(size: 10, weight: .regular, design: .rounded))
+                    .foregroundColor(.secondary.opacity(0.5))
             }
             
             HStack(spacing: 20) {

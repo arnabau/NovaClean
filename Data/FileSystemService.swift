@@ -11,8 +11,9 @@ import Combine
 
 actor FileSystemService: FileSystemServiceProtocol {
     // ================== TESTING MODE =========================
-    private let isReadOnlyMode = true /// Switch to false only in production
-    ///
+    private let isReadOnlyMode = false /// Switch to false only in production
+    // =========================================================
+    
     private var hasAnyError = false
     
     private var fileManager = FileManager.default
@@ -55,7 +56,7 @@ actor FileSystemService: FileSystemServiceProtocol {
                     
                     for itemDef in def.items {
                         guard await ConfigurationRepository.SanitizerJSON.isSafe(path: itemDef.path) else {
-                            print("⚠️ NovaClean blocked a suspicious route: \(itemDef.path)")
+                            //print("⚠️ NovaClean blocked a suspicious route: \(itemDef.path)")
                             continue
                         }
                         
@@ -90,7 +91,7 @@ actor FileSystemService: FileSystemServiceProtocol {
     
     /// Delete selected files
     func deleteItems(_ items: [JunkItem]) async throws -> Bool {
-        var overallSuccess = true
+        let overallSuccess = true
         
         for item in items where item.isSelected {
             /// "special case" --> trashcan. We don't want to delete the folder but empty it
@@ -114,16 +115,20 @@ actor FileSystemService: FileSystemServiceProtocol {
                         }
                     }
                 } catch {
-                    hasAnyError = true
-                    overallSuccess = false
-                    let errorMessage = error.localizedDescription
-                    print("⚠️ Error deleting file \(url.lastPathComponent): \(errorMessage)")
+                    //hasAnyError = true
+                    //overallSuccess = false
+//                    let errorMessage = error.localizedDescription
+//                    print("⚠️ Error deleting file \(url.lastPathComponent): \(errorMessage)")
                     continue
                 }
+                
+                await Task.yield()
             }
-            
-            
         }
+        
+//        if hasAnyError {
+//            // show message at the end...
+//        }
         
         return overallSuccess
     }
@@ -139,17 +144,24 @@ actor FileSystemService: FileSystemServiceProtocol {
         ) else { return }
         
         while let fileURL = enumerator.nextObject() as? URL {
-            if isReadOnlyMode {
-                print("🛡️ [READ-ONLY] Ignorando: \(fileURL.lastPathComponent)")
-                continue
+//            if isReadOnlyMode {
+//                print("🛡️ [READ-ONLY] Ignoring: \(fileURL.lastPathComponent)")
+//                continue
+//            }
+            if !isReadOnlyMode {
+                do {
+                    try fileManager.removeItem(at: fileURL)
+                    await Task.yield()
+                } catch let error {
+                    hasAnyError = true
+                    print("Error: cannot delete \(fileURL.lastPathComponent): \(error.localizedDescription)")
+                    continue
+                }
             }
-            
-            do {
-                try fileManager.removeItem(at: fileURL)
-                await Task.yield() // Mantenemos la UI fluida
-            } catch {
-                print("NovaClean Error: No se pudo eliminar \(fileURL.lastPathComponent): \(error.localizedDescription)")
-            }
+        }
+        
+        if hasAnyError {
+            // show message at the end...
         }
     }
     
@@ -181,7 +193,7 @@ actor FileSystemService: FileSystemServiceProtocol {
             if let enumerator = fileManager.enumerator(
                 at: url,
                 includingPropertiesForKeys: [.isRegularFileKey, .fileSizeKey],
-                options: [.skipsPackageDescendants, .skipsHiddenFiles, .skipsSubdirectoryDescendants] // <-- Evita recursividad infinita
+                options: [.skipsPackageDescendants, .skipsHiddenFiles, .skipsSubdirectoryDescendants] // <-- Avoid infinite recursion
             ){
                 for case let contentURL as URL in enumerator {
                     results.append(contentsOf: resolveWildcards(

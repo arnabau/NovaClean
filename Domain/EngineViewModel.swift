@@ -114,45 +114,47 @@ class EngineViewModel: ObservableObject {
         
         isCleaning = true
         
-        /// Called the service to physically delete the files
-        do {
-            let success = try await service.deleteItems(selectedItems)
-            
-            if success {
-                self.lastCleanupSize = totalSize
-                self.lastCleanupCount = totalFiles
+        Task {
+            /// Called the service to physically delete the files
+            do {
+                let success = try await service.deleteItems(selectedItems)
                 
-                /// Instead of immediately performing another scan (which clears the entire array)
-                /// mark the items as cleared one by one with a small delay so the user sees the exit animation
-                for item in selectedItems {
-                    statusText = String(format: "cleanning_in_progress".localized, item.name)
-                    if let index = findings.firstIndex(where: { $0.id == item.id }) {
-                        await MainActor.run {
-                            withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
-                                findings[index].isCleaned = true
+                if success {
+                    self.lastCleanupSize = totalSize
+                    self.lastCleanupCount = totalFiles
+                    
+                    /// Instead of immediately performing another scan (which clears the entire array)
+                    /// mark the items as cleared one by one with a small delay so the user sees the exit animation
+                    for item in selectedItems {
+                        statusText = String(format: "cleanning_in_progress".localized, item.name)
+                        if let index = findings.firstIndex(where: { $0.id == item.id }) {
+                            await MainActor.run {
+                                withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                    findings[index].isCleaned = true
+                                }
                             }
+                            /// short delay for a "waterfall" effect
+                            try? await Task.sleep(nanoseconds: 100_000_000) /// 0.1 seg
                         }
-                        /// short delay for a "waterfall" effect
-                        try? await Task.sleep(nanoseconds: 100_000_000) /// 0.1 seg
+                    }
+                    
+                    try? await Task.sleep(nanoseconds: 500_000_000)
+                    
+                    withAnimation { findings.removeAll(where: { $0.isCleaned }) }
+                    
+                    /// this will star another scan
+                    //if success { await UIScanProgress() }
+                    isCleaning = false
+                    findings = []
+                    withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                        self.statusText = "text_ready_scan".localized
+                        self.showResultsScreen = true
                     }
                 }
-                
-                try? await Task.sleep(nanoseconds: 500_000_000)
-                
-                withAnimation { findings.removeAll(where: { $0.isCleaned }) }
-                
-                /// this will star another scan
-                //if success { await UIScanProgress() }
-                isCleaning = false
-                findings = []
-                withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
-                    self.statusText = "text_ready_scan".localized
-                    self.showResultsScreen = true
-                }
+            } catch {
+                let safeError = error as? ErrorManager ?? .unknown(error)
+                handleError(safeError)
             }
-        } catch {
-            let safeError = error as? ErrorManager ?? .unknown(error)
-            handleError(safeError)
         }
         
         isCleaning = false
