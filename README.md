@@ -36,8 +36,16 @@ The UI leverages **Glassmorphism** and **Material effects** to blend perfectly w
 
 ## 🛠 Installation
 
-1. Clone the repository:
+1. **GUI Installation (Recommended)**
+
+1. Download and open the DMG
+2. Drag NovaClean.app to /Applications/
+3. Launch the app
+
+Done!
+
+2. Clone the repository:
    ```bash
    git clone [https://github.com/arnabau/NovaClean.git](https://github.com/arnabau/NovaClean.git)
 
-This project is in the development phase, the binary will be available soon, but it is still in beta. You can clone the project and compile a binary if you wish.
+This project is in the development phase
