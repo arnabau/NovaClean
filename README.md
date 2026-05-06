@@ -40,4 +40,4 @@ The UI leverages **Glassmorphism** and **Material effects** to blend perfectly w
    ```bash
    git clone [https://github.com/arnabau/NovaClean.git](https://github.com/arnabau/NovaClean.git)
 
-Note for macOS users: You can get just the binary, bu keep in mind NovaClean is not yet notarized by Apple, you might need to run **xattr -cr /Applications/NovaClean.app** in your terminal to bypass the "Developer cannot be verified" warning. Another way to do this is to use the "install.sh" file, which will perform the process for you. The app and the install.sh file must be in the same location. Alternatively, you can compile the app by yourself.
+This project is in the development phase, the binary will be available soon, but it is still in beta. You can clone the project and compile a binary if you wish.
