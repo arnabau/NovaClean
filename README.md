@@ -2,6 +2,8 @@
 
 NovaClean is a fully-functional modern, lightweight, and high-performance system cleaning utility designed exclusively for macOS. Built with **SwiftUI**, it offers a premium glassmorphic interface to keep your Mac lean, fast, and free of unnecessary junk.
 
+NovaClean uses safety-first defaults: path validation, protected-directory rules, conservative cleanup boundaries, and explicit confirmation for higher-risk actions. When risk or uncertainty is high, NovaClean skips, refuses, or requires stronger confirmation rather than broadening deletion scope.
+
 ## 🚀 Key Features
 
 - **Deep System Scan**: Identifies cache files, logs, and temporary data using a high-speed streaming engine.
