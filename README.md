@@ -50,4 +50,4 @@ Done!
    ```bash
    git clone [https://github.com/arnabau/NovaClean.git](https://github.com/arnabau/NovaClean.git)
 
-This project is in the development phase
+It's still a work in progress, but you can already try the app or contribute to its future
