@@ -117,8 +117,8 @@ actor FileSystemService: FileSystemServiceProtocol {
                 } catch {
                     //hasAnyError = true
                     //overallSuccess = false
-//                    let errorMessage = error.localizedDescription
-//                    print("⚠️ Error deleting file \(url.lastPathComponent): \(errorMessage)")
+                    let errorMessage = error.localizedDescription
+                    print("⚠️ Error deleting file \(url.lastPathComponent): \(errorMessage)")
                     continue
                 }
                 
