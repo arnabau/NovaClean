@@ -2,6 +2,8 @@
 
 NovaClean is a fully-functional modern, lightweight, and high-performance system cleaning utility designed exclusively for macOS. Built with **SwiftUI**, it offers a premium glassmorphic interface to keep your Mac lean, fast, and free of unnecessary junk.
 
+NovaClean uses safety-first defaults: path validation, protected-directory rules, conservative cleanup boundaries, and explicit confirmation for higher-risk actions. When risk or uncertainty is high, NovaClean skips, refuses, or requires stronger confirmation rather than broadening deletion scope.
+
 ## 🚀 Key Features
 
 - **Deep System Scan**: Identifies cache files, logs, and temporary data using a high-speed streaming engine.
@@ -36,8 +38,16 @@ The UI leverages **Glassmorphism** and **Material effects** to blend perfectly w
 
 ## 🛠 Installation
 
-1. Clone the repository:
+1. **GUI Installation (Recommended)**
+
+1. Download and open the DMG
+2. Drag NovaClean.app to /Applications/
+3. Launch the app
+
+Done!
+
+2. Clone the repository:
    ```bash
    git clone [https://github.com/arnabau/NovaClean.git](https://github.com/arnabau/NovaClean.git)
 
-This project is in the development phase, the binary will be available soon, but it is still in beta. You can clone the project and compile a binary if you wish.
+It's still a work in progress, but you can already try the app or contribute to its future
