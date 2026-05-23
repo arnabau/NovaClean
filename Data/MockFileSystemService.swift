@@ -41,8 +41,7 @@ class MockFileSystemService: FileSystemServiceProtocol {
         }
     }
     
-    func deleteItems(_ items: [JunkItem]) async throws -> Bool {
-        // Simular un retraso de red o procesamiento
+    func deleteItems(_ items: [JunkItem], onProgress: @Sendable @escaping (Double) async -> Void) async throws -> Bool {
         try await Task.sleep(nanoseconds: 1_500_000_000) // 1.5 seg
         print("MOCK: would have been erased \(items.count) items")
         return true

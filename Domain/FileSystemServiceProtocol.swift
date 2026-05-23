@@ -11,5 +11,5 @@ import Foundation
 /// Service contract: Any class that implements this protocol can be used by the ViewModel.
 protocol FileSystemServiceProtocol: Sendable {
     func startStreamingScan() async -> AsyncStream<FileSystemService.ScanEvent>
-    func deleteItems(_ items: [JunkItem]) async throws -> Bool
+    func deleteItems(_ items: [JunkItem], onProgress: @Sendable @escaping (Double) async -> Void) async throws -> Bool
 }

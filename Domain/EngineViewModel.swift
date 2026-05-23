@@ -113,11 +113,14 @@ class EngineViewModel: ObservableObject {
         let totalFiles = selectedItems.reduce(0) { $0 + $1.fileCount }
         
         isCleaning = true
-        
-        Task {
+
+        //Task {
             /// Called the service to physically delete the files
             do {
-                let success = try await service.deleteItems(selectedItems)
+                //let success = try await service.deleteItems(selectedItems)
+                let success = try await service.deleteItems(selectedItems) { @MainActor [weak self] newProgress in
+                    self?.progress = newProgress
+                }
                 
                 if success {
                     self.lastCleanupSize = totalSize
@@ -155,7 +158,7 @@ class EngineViewModel: ObservableObject {
                 let safeError = error as? ErrorManager ?? .unknown(error)
                 handleError(safeError)
             }
-        }
+        //}
         
         isCleaning = false
     }
@@ -211,21 +214,21 @@ class EngineViewModel: ObservableObject {
     }
     
     // Purge memory. Does it have any positive effect?
-    //    func purgeMemory() {
-    //        //let process = Process.launchedProcess(launchPath: "/usr/sbin/purge", arguments: [])
-    //        print("Purging memory...")
-    //
-    //        let script = "do shell script \"/usr/sbin/purge\" with administrator privileges"
-    //
-    //        if let appleScript = NSAppleScript(source: script) {
-    //            var error: NSDictionary?
-    //            appleScript.executeAndReturnError(&error)
-    //
-    //            if let err = error {
-    //                print("Error al purgar memoria: \(err)")
-    //            } else {
-    //                print("Memoria purgada con éxito")
-    //            }
-    //        }
-    //    }
+        func purgeMemory() {
+            //let process = Process.launchedProcess(launchPath: "/usr/sbin/purge", arguments: [])
+            print("Purging memory...")
+    
+            let script = "do shell script \"/usr/sbin/purge\" with administrator privileges"
+    
+            if let appleScript = NSAppleScript(source: script) {
+                var error: NSDictionary?
+                appleScript.executeAndReturnError(&error)
+    
+                if let err = error {
+                    print("Error al purgar memoria: \(err)")
+                } else {
+                    print("Memoria purgada con éxito")
+                }
+            }
+        }
 }

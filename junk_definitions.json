@@ -120,7 +120,8 @@
   {
     "category": "test",
     "items": [
-      { "name": "NovaClean Sandbox Test", "path": "/tmp/novaclean_test" }
+      { "name": "NovaClean Sandbox Test", "path": "/tmp/novaclean_test" },
+      { "name": "NovaClean Masive Test", "path": "~/Downloads/NovaClean_100k" }
     ]
   }
 ]

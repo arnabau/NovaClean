@@ -67,7 +67,7 @@ struct ContentView: View {
             ) {
                 HStack() {
                     VStack(alignment: .leading, spacing: 4) {
-                        if viewModel.isScanning {
+                        if viewModel.isScanning || viewModel.isCleaning {
                             HStack {
                                 Text(viewModel.statusText)
                                     .font(.system(.subheadline, design: .monospaced))
@@ -75,10 +75,18 @@ struct ContentView: View {
                                     .lineLimit(1)
                                     .truncationMode(.middle) /// long paths
                                 
-                                ProgressView()
-                                    .foregroundStyle(.labelSecondary)
-                                    .progressViewStyle(.circular)
-                                    .controlSize(.small)
+                                if viewModel.isCleaning {
+                                    ProgressView(value: viewModel.progress, total: 1.0)
+                                        .progressViewStyle(.linear)
+                                        .tint(.blue)
+                                        .animation(.easeInOut(duration: 0.3), value: viewModel.progress)
+                                        .padding(.horizontal)
+                                } else {
+                                    ProgressView()
+                                        .foregroundStyle(.labelSecondary)
+                                        .progressViewStyle(.circular)
+                                        .controlSize(.small)
+                                }
                             }
                         } else {
                             Text(
@@ -118,7 +126,7 @@ struct ContentView: View {
                     CleanupResultsView(
                         size: viewModel.lastCleanupSize,
                         fileCount: viewModel.lastCleanupCount,
-//                        onDone: { viewModel.resetToStart() }
+                        //onDone: { viewModel.resetToStart() }
                     )
                     .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
                 } else {
@@ -175,14 +183,14 @@ struct ContentView: View {
                         .buttonStyle(.borderedProminent)
                         .tint(.btnSecondary.opacity(0.3))
                         
-                        //                    Button(action: { viewModel.purgeMemory() }) {
-                        //                        Label("Purge memory", systemImage: "memorychip")
-                        //                            .font(.callout)
-                        //                    }
-                        //                    .disabled(viewModel.isScanning || viewModel.isCleaning)
-                        //                    .buttonStyle(.bordered)
-                        //                    .tint(.cyan)
-                        //                    .help("It is recommended to use only when the system is highly saturated. May slightly slow down your Mac for a few moments.")
+                        Button(action: { viewModel.purgeMemory() }) {
+                            Label("Purge memory", systemImage: "memorychip")
+                                .font(.callout)
+                        }
+                        .disabled(viewModel.isScanning || viewModel.isCleaning)
+                        .buttonStyle(.borderedProminent)
+                        .tint(.btnSecondary.opacity(0.3))
+                        .help("It is recommended to use only when the system is highly saturated. May slightly slow down your Mac for a few moments.")
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     

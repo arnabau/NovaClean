@@ -34,7 +34,13 @@ actor FileSystemService: FileSystemServiceProtocol {
     }
     
     // ******************************
-    // create junk files for testing
+    // Create basic junk files for testing. If you want more junks to test, open you terminal en paste:
+    // mkdir -p ~/Downloads/NovaClean_100k                              --> create a NovaClean_100k folder inside Downloads
+    //                                                                      the route is already in junk_definitions.json
+    // cd ~/Downloads/NovaClean_100k                                    --> go inside the folder
+    // seq 1 10000 | xargs -I {} -P 8 touch "junk_digital_{}.tmp"       --> create 10000 0mb files. Just junk
+    // seq 1 1000 | xargs -I {} -P 8 mkfile 1m "junk_file_{}.log"       --> create 1000 1mb files. 1gb total.
+    
 //    func createDummyFiles() {
 //        let path = "/tmp/novaclean_test"
 //        try? fileManager.createDirectory(atPath: path, withIntermediateDirectories: true)
@@ -90,13 +96,20 @@ actor FileSystemService: FileSystemServiceProtocol {
     }
     
     /// Delete selected files
-    func deleteItems(_ items: [JunkItem]) async throws -> Bool {
+    func deleteItems(_ items: [JunkItem], onProgress: @Sendable @escaping (Double) async -> Void) async throws -> Bool {
         let overallSuccess = true
+        
+        let totalItems = Double(items.count)
+        var processedItems = 0.0
         
         for item in items where item.isSelected {
             /// "special case" --> trashcan. We don't want to delete the folder but empty it
             if item.category == .trash && !isReadOnlyMode {
                 await emptyTrashManually()
+                
+                processedItems += 1
+                await onProgress(processedItems / totalItems)
+                
                 continue /// jump to the next item
             }
             
@@ -115,8 +128,6 @@ actor FileSystemService: FileSystemServiceProtocol {
                         }
                     }
                 } catch {
-                    //hasAnyError = true
-                    //overallSuccess = false
                     let errorMessage = error.localizedDescription
                     print("⚠️ Error deleting file \(url.lastPathComponent): \(errorMessage)")
                     continue
@@ -124,7 +135,12 @@ actor FileSystemService: FileSystemServiceProtocol {
                 
                 await Task.yield()
             }
+            
+            processedItems += 1
+            await onProgress(processedItems / totalItems)
         }
+        
+        await onProgress(1.0)
         
 //        if hasAnyError {
 //            // show message at the end...
@@ -144,10 +160,6 @@ actor FileSystemService: FileSystemServiceProtocol {
         ) else { return }
         
         while let fileURL = enumerator.nextObject() as? URL {
-//            if isReadOnlyMode {
-//                print("🛡️ [READ-ONLY] Ignoring: \(fileURL.lastPathComponent)")
-//                continue
-//            }
             if !isReadOnlyMode {
                 do {
                     try fileManager.removeItem(at: fileURL)
