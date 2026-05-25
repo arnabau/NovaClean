@@ -52,8 +52,8 @@ Done!
 
 It's still a work in progress, but you can already try the app or contribute to its future
 
-## ¿Do you like NovaClean?
+## Do you like NovaClean? Do you found it helpful?
 
-If you found it helpful, consider buying me a coffee ☕ to motivate me to keep it up:
+I maintain this project in my free time. Any support is very welcome:
 
-[<image-card alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" ></image-card>](https://buymeacoffee.com/stringsandbits)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/stringsandbits)
