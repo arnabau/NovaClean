@@ -56,4 +56,6 @@ It's still a work in progress, but you can already try the app or contribute to 
 
 I maintain this project in my free time. Any support is very welcome:
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/stringsandbits)
+<a href="https://buymeacoffee.com/stringsandbits" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50" />
+</a>
