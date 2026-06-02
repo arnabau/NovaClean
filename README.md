@@ -51,3 +51,11 @@ Done!
    git clone [https://github.com/arnabau/NovaClean.git](https://github.com/arnabau/NovaClean.git)
 
 It's still a work in progress, but you can already try the app or contribute to its future
+
+## Do you like NovaClean? Do you found it helpful?
+
+I maintain this project in my free time. Any support is very welcome:
+
+<a href="https://buymeacoffee.com/stringsandbits" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50" />
+</a>
